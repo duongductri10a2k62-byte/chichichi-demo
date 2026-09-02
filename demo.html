@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        overflow: hidden;
+        background-image: radial-gradient(circle,#FFD700, #feb47b) ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+    }
+    .card{
+        width: 410px;
+        height: 410px;
+
+        background: rgba(255,180,195,0.45);
+
+        border: 3px solid rgba(255,255,255,0.5);
+        border-radius: 22px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 38px 25px;
+
+        box-shadow:0 20px 40px rgba(180, 70, 120, 0.25),
+                inset 0 0 20px rgba(255, 255, 255, 0.15); ;
+
+        backdrop-filter: blur(5px);
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+
+            color: #d62970;
+
+            margin-bottom: 22px;
+        }
+
+        .message {
+            font-size: 17px;
+            color: #f06a9f;
+
+            margin-bottom: 30px;
+        }
+        .btn {
+            width: 180px;
+            height: 60px;
+
+            border: none;
+            border-radius: 35px;
+
+            background: #ed70b0;
+            color: white;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 20px rgba(210, 70, 140, 0.25);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            background: #e85ca4;
+        }
+
+        /* ================= EMOJI TRANG TRÍ ================= */
+
+        .decor {
+            position: absolute;
+            font-size: 45px;
+            user-select: none;
+        }
+
+        .heart1 {
+            top: 35px;
+            left: 40px;
+        }
+
+        .heart2 {
+            top: 290px;
+            right: 570px;
+            font-size: 35px;
+        }
+
+        .star {
+            top: 70px;
+            right: 70px;
+            font-size: 38px;
+        }
+
+        .flower {
+            bottom: 30px;
+            left: 80px;
+            font-size: 42px;
+        }
+
+        .heart3 {
+            bottom: 30px;
+            right: 40px;
+            font-size: 45px;
+        }
+
+        .bow {
+            top: 435px;
+            left: 440px;
+            font-size: 35px;
+        }
+    }
+    
+</style>
+<body>
+
+    <div class="decor header1">💖</div>
+    <div class="decor header2">🩷</div>
+    <div class="decor header3">💚</div>
+    <div class="decor star">⭐</div>
+    <div class="decor flower">🌻</div>
+    <div class="decor bow">🎀</div>
+
+    <div class="card">
+        <img class="avatar" src="cat.jpg" alt="Ảnh mèo">
+
+        <h1 class="title"> Hii công túa!!</h1>
+
+        <p class="message"> Anh có một điều rất đặc biệt dành cho em...</p>
+
+        <button class="btn" onclick="openForm()">Đâu coi!! ⭐</button>
+    </div>
+
+    <script>
+        function openForm(){
+            window.open("form.html","_blank")
+        }
+    </script>
+</body>
+</html>

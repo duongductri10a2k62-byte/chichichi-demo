@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điền thông tin 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                120deg,
+                #ffc0cb,
+                #ffb6d9,
+                #f58bd1
+            );
+
+            font-family: Arial, sans-serif;
+        }
+
+        .form-box {
+            width: 420px;
+
+            padding: 35px;
+
+            background: rgba(255, 255, 255, 0.25);
+
+            border: 3px solid rgba(255,255,255,0.5);
+            border-radius: 25px;
+
+            box-shadow: 0 20px 40px rgba(180,70,120,0.25);
+        }
+
+        h1 {
+            text-align: center;
+            color: #d62970;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+
+            color: #d62970;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 12px;
+
+            border: none;
+            border-radius: 12px;
+
+            outline: none;
+
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 25px;
+            padding: 14px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: #ed70b0;
+            color: white;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e85ca4;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+
+        <h1>💌 Một chút dành cho anh</h1>
+
+        <form id="myForm">
+
+            <label>Tên của em</label>
+            <input
+                type="text"
+                id="name"
+                placeholder="Nhập tên..."
+                required
+            >
+
+            <label>Lời nhắn</label>
+            <textarea
+                id="message"
+                placeholder="Viết gì đó cho anh nha..."
+                required
+            ></textarea>
+
+            <button type="submit">
+                Gửi cho anh 💗
+            </button>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        document.getElementById("myForm").addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+
+    try {
+
+        const response = await fetch("/api/message", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                name: name,
+                message: message
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert("Gửi thành công 💕");
+        }
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Không kết nối được với server!");
+
+    }
+});
+
+    </script>
+</body>
+</html>
